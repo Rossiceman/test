@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+    <!--● 文字置中語法
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        ● 互動式視窗滑鼠點過去可以有變色的效果
+        :hover
+        background-color: var(--資料庫顏色);
+        color:var(資料庫顏色)
+
+        ● @media screen and (min-width:px)
+        控制網頁的物件在多少px時固定或者改變
+        例如:把方形物件改成圓形:
+        .box002{
+            width: 220px;
+            height: 220px;
+            border-radius: 120px;
+            background-color: var(--mycolor13);
+        }
+
+        網頁px變大，物件隨著放大:
+        .box002{
+            width: 260px;
+            height: 260px;
+            border-radius: 130px;
+            background-color: var(--mycolor12);
+        }
+        
+        ● 物件框線:
+        .box003{ 設定框線
+            border: 2px solid var(--mycolor12); 粗度
+            box-shadow: 2px 2px 2px 2px var(--mycolor14); 四邊跟顏色
+            border-radius: 20px; 圓潤度
+            padding: 10px; 向內推擠
+        }
+        .box003{
+            margin-top: 15px; 上推
+            margin-bottom: 15px; 下推
+        }
+        .box003:hover{
+            background-color: var(--mycolor01);滑鼠過去之後背景變色
+            color:var(--mycolor14)
+        }       
+        ● 解析度px
+        sm>576px
+        md>768px
+        lg>992px
+        xl>1200px
+        xxl>144px(少用)
+        
+        ●斷點
+        d-none隱藏
+        d-block顯示
+        例如:
+        <div class="col-12 d-none d-sm-block">
+        <div class="box001 bg-cover"></div>
+        在sm(<576px)尺寸以下不顯示(d-done)
+        在(>576px)顯示(d-block)
+
+        ●col最大框度12
+
+        ●col重點
+        首頁圖片：
+        <div class="container-lg">
+        <div class="row"></div>
+        <div class="col-12 d-none d-sm-block">(分隔成12格在px>576px時顯示背景圖)
+        <div class="box001 bg-cover"></div>(bg-cover背景圖置中延伸)
+        </div>
+        下面呼叫上面：
+        .box001{
+        height: 220px;
+        background-image: url(image/street8.jpg);
+      }
+        
+        中間圖片跟文字:
+        <div class="col-md-6 col-lg-4"> (>768px把畫面分隔成2格)(>992px把畫面分隔成3格)
+        <div class="box003 text-center">(圖片框線)(text-center文字在圖片裡置中)
+        <div class="bg-cover" style="background-image: url(image/street1.jpg);height: 220px;"></div>
+        <div class="h4">旅遊景點介紹01</div>
+        <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+        </div>
+        </div>
+
+        ● 固定圖片位置
+        <img src="https://fakeimg.pl/1400x150/200" class="img-fluid">
+        =img-fluid
+        -->
+    <style>
+      .box001{
+        height: 220px;
+        background-image: url(image/street8.jpg);
+      }
+      .box002{
+        height: 220px;
+        margin: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box002:hover{
+        background-color: var(--mycolor08);
+        color:var(--mycolor06)
+      }
+      @media screen and (min-width:992px){
+        .box002{
+            width: 220px;
+            height: 220px;
+            border-radius: 120px;
+            background-color: var(--mycolor13);
+        }
+      }
+      @media screen and (min-width:1200px){
+        .box002{
+            width: 260px;
+            height: 260px;
+            border-radius: 130px;
+            background-color: var(--mycolor12);
+        }
+    }
+        .box003{
+            border: 2px solid var(--mycolor12);
+            box-shadow: 2px 2px 2px 2px var(--mycolor14);
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .box003{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .box003:hover{
+            background-color: var(--mycolor01);
+            color:var(--mycolor14)
+        }
+      
+        
+    </style>
+</head>
+<body>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <div class="container-lg">
+        <div class="row"></div>
+            <div class="col-12 d-none d-sm-block">
+                <div class="box001 bg-cover"></div>
+            </div>
+       <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="box002 bg-01 h1">選單01</div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="box002 bg-01 h1">選單02</div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="box002 bg-01 h1">選單03</div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="box002 bg-01 h1">選單04</div>
+       </div> 
+       <div class="row gy-3">
+        <div class="col-md-6 col-lg-4">
+            <div class="box003 text-center">
+                <div class="bg-cover" style="background-image: url(image/street1.jpg);height: 220px;"></div>
+                <div class="h4">旅遊景點介紹01</div>
+                <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="box003 text-center">
+                <div class="bg-cover" style="background-image: url(image/street2.jpg);height: 220px;"></div>
+                <div class="h4">旅遊景點介紹02</div>
+                <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="box003 text-center">
+                <div class="bg-cover" style="background-image: url(image/street3.jpg);height: 220px;"></div>
+                <div class="h4">旅遊景點介紹03</div>
+                <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="box003 text-center">
+                <div class="bg-cover" style="background-image: url(image/street4.jpg);height: 220px;"></div>
+                <div class="h4">旅遊景點介紹04</div>
+                <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="box003 text-center">
+                <div class="bg-cover" style="background-image: url(image/street5.jpg);height: 220px;"></div>
+                <div class="h4">旅遊景點介紹05</div>
+                <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="box003 text-center">
+                <div class="bg-cover" style="background-image: url(image/stree6.jpg);height: 220px;"></div>
+                <div class="h4">旅遊景點介紹06</div>
+                <P>報名一體影視浪費給我們，街道第二天主人相同一點公斤動態最好的，說著硬體夢幻遠遠上次人大差距，協會進步他對，男人也會一口預覽一張有限公司性感不說遇到，顯卡人力滿足本來眼中電子郵件將軍創作之下不去，流程晚上網上市場價，安全來自空中讓他無數，新技術連續醫學，圖。</P>
+            </div>
+        </div>
+        
+             
+            
+        
+
+    <div class="col-12 d-none d-md-block">
+        <img src="https://fakeimg.pl/1400x150/200" class="img-fluid">
+      
+    </div>   
+    </div>
+    </div>
+</body>
+</html>

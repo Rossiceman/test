@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的首頁</title>
+    <link rel="stylesheet" href="css/mycolor.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!--vh滿版
+            https://www.explainthis.io/zh-hant/swe/css-position
+            position 控制網頁顯示位置
+            position relative外層 相對位置
+            position absolute內層 絕對位置
+            position fixed 固定位置:捲動網頁一樣固定在相對位置
+            background-attachment: fixed;-->
+    <style>
+        .section01{
+            height: 100vh;
+            position: relative;
+        }
+        .box01{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            top: 0;
+            left: 0;
+        }
+        .box02{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: 0;
+            top: 0;
+        }
+        .box03{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            left: 0;
+            bottom: 0;
+        }
+        .box04{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: 0;
+            bottom: 0;
+        }
+        .logo{
+            position: absolute;
+            top: 30px;
+            bottom: 30px;
+            right: 30px;
+            left: 30px;
+            background-image:url(/202405/image/street8.jpg);
+            border-radius: 15px;
+            box-shadow: 2px 2px 6px 4px var(--mycolor05);
+            background-attachment: fixed;
+
+        }
+        .user_text{
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--mytextcolor14);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%);
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+
+        }
+        .user_text h1{
+            font-size: 48px;
+        }
+        .user_text h2{
+            font-size: 36px;
+        }
+        .user_text p{
+            font-size: 24px;
+        }
+        .section02{
+            width: 80%;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    .section02 .s02_box{
+            width: 32%;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    .section02 .s02_box .box_in{
+            position: relative;
+            width: 100%;
+            height: auto;
+            background-color: var(--mycolor13);
+            overflow: hidden;
+        }
+    .section02 .s02_box .box_in .roller{
+           position: absolute;
+           width: 100%;
+           height: 100%;
+           right: -100%;
+           background-color:rgba(0, 0, 0, 0.3);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+    .section02 .s02_box .box_in:hover .roller{
+            right: 0;
+            transition: right 2s;
+        }
+    .section02 .s02_box .box_in .box_in_text{
+        padding: 15px;
+    }
+    .section02 .s02_box .box_in .box_in_text h2, h4{
+        margin: 5px;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="section01 bg-08">
+        <div class="box01 bg-04"></div>
+        <div class="box02 bg-04"></div>
+        <div class="box03 bg-04"></div>
+        <div class="box04 bg-04"></div>
+        <div class="logo bg-01 bg-cover"></div>
+        <div class="user_text">
+            <h1>20號的個人作品</h1>
+            <hr>
+            <h2>看一次</h2>
+            <p><h1>500</h1></p>
+        </div>
+    </div>
+    <div class="section02">
+        <div class="s02_box">
+            <div class="box_in">
+                <div class="roller">
+                    <a href="http://192.168.10.71/202405/202406-1.html" class="bg-btna06">查看更多</a>
+                </div>
+                <div class="bg-cover"
+                style="background-image: url(/202405/image/street5.jpg);height: 220px;"></div>
+            <div class="box_in_text">   
+                <h2>烤秋勤燒烤店</h2>
+                     <h4>中秋節快到了開烤了。</h4>
+                    </div>  
+            </div>
+        </div>
+        <div class="s02_box">
+            <div class="box_in">
+                <div class="roller">
+                    <a href="http://192.168.10.71/202405/0730-spa.html" class="bg-btna06">查看更多</a>
+                </div>
+                <div class="bg-cover"
+                style="background-image: url(/202405/image/street5.jpg);height: 220px;"></div>
+            <div class="box_in_text">   
+                <h2>SPA</h2>
+                     <h4>一頁式網站。</h4>
+                    </div>  
+            </div>
+        </div>
+        <div class="s02_box">
+            <div class="box_in">
+                <div class="roller">
+                    <a href="http://192.168.10.71/202405/202406-1.html" class="bg-btna06">查看更多</a>
+                </div>
+                <div class="bg-cover"
+                style="background-image: url(/202405/image/street5.jpg);height: 220px;"></div>
+            <div class="box_in_text">   
+                <h2>作品01</h2>
+                     <h4>旁邊隨着標誌，你怎麼，各地和。</h4>
+                    </div>  
+            </div>
+        </div>
+        <div class="s02_box">
+            <div class="box_in">
+                <div class="roller">
+                    <a href="http://192.168.10.71/202405/202406-1.html" class="bg-btna06">查看更多</a>
+                </div>
+                <div class="bg-cover"
+                style="background-image: url(/202405/image/street5.jpg);height: 220px;"></div>
+            <div class="box_in_text">   
+                <h2>作品01</h2>
+                     <h4>旁邊隨着標誌，你怎麼，各地和。</h4>
+                    </div>  
+            </div>
+        </div>
+        <div class="s02_box">
+            <div class="box_in">
+                <div class="roller">
+                    <a href="http://192.168.10.71/202405/202406-1.html" class="bg-btna06">查看更多</a>
+                </div>
+                <div class="bg-cover"
+                style="background-image: url(/202405/image/street5.jpg);height: 220px;"></div>
+            <div class="box_in_text">   
+                <h2>作品01</h2>
+                     <h4>旁邊隨着標誌，你怎麼，各地和。</h4>
+                    </div>  
+            </div>
+        </div>
+        <div class="s02_box">
+            <div class="box_in">
+                <div class="roller">
+                    <a href="http://192.168.10.71/202405/202406-1.html" class="bg-btna06">查看更多</a>
+                </div>
+                <div class="bg-cover"
+                style="background-image: url(/202405/image/street5.jpg);height: 220px;"></div>
+            <div class="box_in_text">   
+                <h2>作品01</h2>
+                     <h4>旁邊隨着標誌，你怎麼，各地和。</h4>
+                    </div>  
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+</html>

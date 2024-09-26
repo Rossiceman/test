@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceLand．景點細節</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-14 navber-bg-14">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/0701-iceland-index.html"><i class="fa-solid fa-hat-cowboy"></i>IceLand</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/0701-iceland-index.html"><i class="fa-brands fa-fort-awesome text-secondary text-danger-emphasis"></i>首頁Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/0701-iceland-about.html"><i class="fa-brands fa-fort-awesome-alt text-danger-emphasis"></i>關於我們About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-radiation text-info-emphasis"></i>景點View
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/0701-iceland-view.html">山Mountain</a></li>
+                  <li><a class="dropdown-item" href="/0701-iceland-view-1.html">海Sea</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="banner bg-info bg-cover d-none d-md-block" style="height: 260px;background-image: linear-gradient(180deg, rgba(99, 100, 98, 0.1),rgba(247, 241, 241, 0.2)),url(image/iceland14.jpg);"></div>
+
+    
+    <div class="container">
+        <div class="h3 text-warning fw-900 my-3">|景點細節<small class="text-muted">View Details</small></div>
+        <div class="row">
+            <div class="col-md-8">
+                <img src="image/iceland18.jpg" id="imgFull" class="img-fluid" alt="">
+            <ul class="list-unstyled d-flex justify-content-between flex-nowrap overflow-auto">
+              <div class="">
+                <ul class="list-unstyled d-flex justify-content-between flex-nowrap overflow-auto my-2">
+                    <li>
+                      <img class="bg-cover" onclick="changeImg('iceland18')" src="image/iceland18.jpg" alt="" style="height: 100px; cursor:pointer;">
+                    </li>
+                    <li>
+                      <img class="bg-cover" onclick="changeImg('iceland11')" src="image/iceland11.jpg" alt="" style="height: 100px; cursor:pointer;">
+                    </li>
+                    <li>
+                      <img class="bg-cover" onclick="changeImg('iceland12')" src="image/iceland12.jpg" alt="" style="height: 100px; cursor:pointer;">
+                    </li>
+                    <li>
+                      <img class="bg-cover" onclick="changeImg('iceland17')" src="image/iceland17.jpg" alt="" style="height: 100px; cursor:pointer;">
+                    </li>
+                    <li>
+                      <img class="bg-cover" onclick="changeImg('iceland14')" src="image/iceland14.jpg" alt="" style="height: 100px; cursor:pointer;">
+                    </li>
+                </ul>
+              </div>
+            <!--橫向選單--> 
+            </div>
+            <div class="col-md-4">
+                <div class="h3">Land</div>
+                <div class="h3">地點:ice</div>
+                <div class="h3">原料
+                    <span class="text-bg-info badge fw-500">蔚藍</span>
+                    <span class="text-bg-success badge fw-500">蒼綠</span>
+                    <span class="text-bg-warning badge fw-500">四季</span>
+                </div>
+                <div class="card-text h3 fw-500 mt-2">簡介:
+                    <span class="fw-400">ICE</span>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">報名人數</label>
+                    <input type="number" class="form-control" min="1" max="100" value="10">
+                </div>
+                <button class="btn btn-danger w-100">確定訂購</button>
+            </div>
+        </div>    
+    </div>
+    
+
+
+    <div class="footer text-bg-secondary h4 text-center py-2 fixed-bottom">
+        IceLand 2024.07
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      function changeImg(num){
+      document.getElementById('imgFull').src="image/"+ num + ".jpg";
+    }
+
+    </script>
+
+   
+</body>
+</html>
+
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceLand．關於我們</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+    <style>
+        .timeline-section{
+            position: relative;
+        }
+        .timeline-section::before{
+            position: absolute;
+            content:"";
+            top:10px;
+            bottom: 10px;
+            width: 4px;
+            background-color: var(--mycolor11);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-section-pointer{
+            position: relative;
+        }
+        .timeline-section-pointer::before{
+            position: absolute;
+            content:"";
+            width: 24px;
+            height: 24px;
+            background-color: var(--mycolor11);
+            border-radius: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid var(--mycolor12);
+            top: 10px;
+        }
+        .timeline-section-pointer:hover::before{
+            width: 36px;
+            height: 36px;
+            border: 15px solid var(--mycolor13);
+        }
+        @media screen and (max-width :768px){
+            .timeline-section::before{
+                left: -10px;
+            }
+            .timeline-section-pointer::before{
+                left: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-14 navber-bg-14">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/0701-iceland-index.html"><i class="fa-solid fa-hat-cowboy"></i>IceLand</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/0701-iceland-index.html"><i class="fa-brands fa-fort-awesome text-secondary text-danger-emphasis"></i>首頁Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/0701-iceland-about.html"><i class="fa-brands fa-fort-awesome-alt text-danger-emphasis"></i>關於我們About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-radiation text-info-emphasis"></i>景點View
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/0701-iceland-view.html">山Mountain</a></li>
+                  <li><a class="dropdown-item" href="/0701-iceland-view-1.html">海Sea</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="banner bg-info bg-cover d-none d-md-block" style="height: 260px;background-image: linear-gradient(180deg, rgba(99, 100, 98, 0.1),rgba(247, 241, 241, 0.2)),url(image/iceland5.jpg);"></div>
+
+
+    <div class="container">
+        <div class="timeline-section">
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3 text-center">
+                    <div class="h3 text-danger fw-900">關於我們<small class="text-muted">About Us</small></div>
+                    <p>Spring</p>
+                    <ul class="list-unstyled fw-700">
+                        <li>March</li>
+                        <li>April</li>
+                        <li>May</li>
+                        <li><i class="fa-brands fa-envira"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 bg-cover mt-3" style="background-image: url(image/iceland16.jpg);height: 260px;"></div>
+            </div>
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3 text-center">
+                    <div class="h3 text-danger fw-900">關於我們<small class="text-muted">About Us</small></div>
+                    <p>Summer</p>
+                    <ul class="list-unstyled fw-700">
+                        <li>June</li>
+                        <li>July</li>
+                        <li>August</li>
+                        <li><i class="fa-brands fa-envira"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 bg-cover mt-3" style="background-image: url(image/iceland8.jpg);height: 260px;"></div>
+            </div>
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3 text-center">
+                    <div class="h3 text-danger fw-900">關於我們<small class="text-muted">About Us</small></div>
+                    <p>Autumn</p>
+                    <ul class="list-unstyled fw-700">
+                        <li>September</li>
+                        <li>October</li>
+                        <li>November</li>    
+                        <li><i class="fa-brands fa-envira"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 bg-cover mt-3" style="background-image: url(image/iceland9.jpg);height: 260px;"></div>
+            </div>
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3 text-center">
+                    <div class="h3 text-danger fw-900">關於我們<small class="text-muted">About Us</small></div>
+                    <p>Winter</p>
+                    <ul class="list-unstyled fw-700">
+                        <li>December</li>
+                        <li>January</li>
+                        <li>February</li>
+                        <li><i class="fa-brands fa-envira"></i></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 bg-cover mt-3" style="background-image: url(image/iceland12.jpg);height: 260px;"></div>
+            </div>                
+        </div>      
+    </div>
+
+    <div class="footer text-bg-secondary h4 text-center py-2 fixed-bottom">
+        IceLand 2024.07
+    </div>
+    
+    <br><br><br><br>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

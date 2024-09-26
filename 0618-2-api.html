@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mycolor.css">
+<style>
+    .box{
+        height: auto;
+        margin: 15px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row" id="mydata">
+            <div class="col-sm-6">
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>   
+    $(function(){
+        $.ajax({
+            type:"GET",
+            url:"https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193",
+            dataType:"json",
+            success:showdata,
+            error:function(){
+                console.log("404-https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193")
+            }
+        });
+    });
+
+    function showdata(data){
+        for(var i=0;i<6;i++){
+            var Hwod =data[i].HostWords.substring(0,30);
+            var strHTML='<div class="col-sm-6 col-md-4 mt-3"><div class="box bg-10 h-100"><div class="bg-cover" style="background-image: url('+ data[i].PicURL +');height: 180px;"></div><div class="box_text"><div class="h1">餐廳名稱:'+ data[i].Name +'</div><div class="h2">電話:'+ data[i].Tel +'</div><div class="h4">地址:'+ data[i].Address +'</div><div class="h6">簡介:'+ Hwod +'。</div></div></div></div>';
+            $("#mydata").append(strHTML);
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習03</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+   <style>
+    .timeline-section{
+        position: relative;
+    }
+    .timeline-section::before{
+        position:absolute;
+        content: "";
+        top: 10px;
+        bottom: 10px;
+        width: 4px;
+        background-color: var(--mycolor11);
+        left: 50%;
+        transform: translateX(-50%);/*把線條水平置中把寬度拿回來*/
+    }
+    .timeline-section-pointer{
+        position:relative;
+    }
+    .timeline-section-pointer::before{
+        position:absolute;
+        content:"";
+        width: 24px;
+        height: 24px;
+        background-color: var(--mycolor11);
+        border-radius: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid var(--mycolor12);
+        top: 10px;
+    }
+    .timeline-section-pointer:hover::before{
+        width: 36px;
+        height: 36px;
+        border: 15px solid var(--mycolor13);
+    }
+    .box_roller{
+        position: relative;
+        overflow: hidden;
+    }
+    .roller{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3);/*後面0.3設定陰影*/
+        top:-100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box_roller:hover .roller{
+        top:0;
+        transition: top 1.5s;
+    }
+    @media screen and (max-width :768px){
+       /* .timeline-section::before{  讓中間的線跟圓圈消失在768px以下的時候
+            display: none;
+        }
+        .timeline-section-pointer::before{
+            display: none;
+        }*/
+
+        .timeline-section::before{
+            left: -10px;
+        }
+        .timeline-section-pointer::before{
+            left: 3px;
+        }
+    }
+    
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timeline-section" id="mydata">
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center text-color12 fw-400">國際街景</div>
+                        <div class="h4">地址:
+                            <s>美國</s><span class="text-danger">第五街區</span></div>
+                            <div class="h4">電話:XXXX</div>
+                        <div class="h4">停車資訊:XXXX</div>
+                        <div class="h5">簡介:提前現代化對外努力首頁相冊坐在背後風景最新團體唱片，轉帖難得總經理條例正在將在承諾公佈，說了大聲爆。</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="boc_img bg-cover box_roller" style="background-image: url(image/street.jpg);height: 300px;">
+                        <div class="roller">
+                            <button class="btn bg-btna06">查看更多</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center text-color12 fw-900">國際街景</div>
+                        <div class="h4">地址:XXXX</div>
+                        <div class="h4">電話:XXXX</div>
+                        <div class="h4">停車資訊:XXXX</div>
+                        <div class="h5">簡介:提前現代化對外努力首頁相冊坐在背後風景最新團體唱片，轉帖難得總經理條例正在將在承諾公佈，說了大聲爆。</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="boc_img bg-cover box_roller" style="background-image: url(image/street1.jpg);height: 300px;">
+                        <div class="roller">
+                            <button class="btn bg-btna06">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center text-color12 fw-900">國際街景</div>
+                        <div class="h4">地址:XXXX</div>
+                        <div class="h5">簡介:提前現代化對外努力首頁相冊坐在背後風景最新團體唱片，轉帖難得總經理條例正在將在承諾公佈，說了大聲爆。</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="boc_img bg-cover box_roller" style="background-image: url(image/street2.jpg);height: 300px;">
+                        <div class="roller">
+                            <button class="btn bg-btna06">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center text-color12 fw-900">國際街景</div>
+                        <div class="h4">地址:XXXX</div>
+                        <div class="h5">簡介:提前現代化對外努力首頁相冊坐在背後風景最新團體唱片，轉帖難得總經理條例正在將在承諾公佈，說了大聲爆。</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="boc_img bg-cover box_roller" style="background-image: url(image/street3.jpg);height: 300px;">
+                        <div class="roller">
+                            <button class="btn bg-btna06">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center text-color12 fw-900">旅館名稱</div>
+                        <div class="h4">地址:XXXX</div>
+                        <div class="h5">簡介:提前現代化對外努力首頁相冊坐在背後風景最新團體唱片，轉帖難得總經理條例正在將在承諾公佈，說了大聲爆。</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="boc_img bg-cover box_roller" style="background-image: url(image/street4.jpg);height: 300px;">
+                        <div class="roller">
+                            <button class="btn bg-btna06">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center text-color12 fw-900">國際街景</div>
+                        <div class="h4">地址:XXXX</div>
+                        <div class="h5">簡介:提前現代化對外努力首頁相冊坐在背後風景最新團體唱片，轉帖難得總經理條例正在將在承諾公佈，說了大聲爆。</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="boc_img bg-cover box_roller" style="background-image: url(image/street5.jpg);height: 300px;">
+                        <div class="roller">
+                            <button class="btn bg-btna06">查看更多</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        var hotelData;
+        $(function(){
+            $.ajax({
+                type:"GET",
+                url:"js/hotel_C_f.json",
+                dataType:"json",
+                success: showdata,
+                error:function(){
+                    console.log("error")
+                }
+            });
+        });
+        function showdata(data){
+            console.log(data.XML_Head.Infos.Info);
+            hotelData = data.XML_Head.Infos.Info;
+            console.log(hotelData);
+
+            var counter=0;
+            $("#mydata").empty();
+            hotelData.forEach(function(item){
+                if(item.Region == "臺中市" && item.Town =="龍井區"){
+                    console.log(item);
+
+                    var pic, strHTML;
+                    if (item.Picture1 !=""){
+                        pic=item.Picture1;
+                    }else{
+                        pic="image/01.jpg"
+                    }
+
+                    if(counter % 2 == 0){
+                        //偶數
+                        strHTML = '<div class="row align-items-center timeline-section-pointer flex-row-reverse"><div class="col-md-6 mt-3"><div class="box_text"><div class="h2 text-center text-success fw-900">' + item.Name + '</div><div class="h4">地址:' + item.Add + '</div><div class="h4">電話:' + item.Tel + '</div><div class="h4">車位:' + item.Parkinginfo + '</div><div class="h5 fw-300">簡介: ' + item.Description.substring(0, 50) + '</div></div></div><div class="col-md-6 mt-3"><div class="boc_img bg-cover box_roller" style="background-image: url(' + pic + '); height: 300px;"><div class="roller"><button class="btn btn-warning">查看更多</button></div></div></div></div>';
+                   
+                    }else{
+                        //奇數
+                        strHTML = '<div class="row align-items-center timeline-section-pointer "><div class="col-md-6 mt-3"><div class="box_text"><div class="h2 text-center text-success fw-900">' + item.Name + '</div><div class="h4">地址:' + item.Add + '</div><div class="h4">電話:' + item.Tel + '</div><div class="h4">車位:' + item.Parkinginfo + '</div><div class="h5 fw-300">簡介: ' + item.Description.substring(0, 50) + '</div></div></div><div class="col-md-6 mt-3"><div class="boc_img bg-cover box_roller" style="background-image: url(' + pic + '); height: 300px;"><div class="roller"><button class="btn btn-warning">查看更多</button></div></div></div></div>';
+                    }
+                    
+                    $("#mydata").append(strHTML);
+                    
+                    counter++;
+                }
+            });
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOS(代辦事項工具)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">會員管理控制台</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="20240730-spa.html">Home</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <span class="h3 text-success fw-900">會員: <span class="h1 text-danger fw-900"></span>{{ loginUser
+                            }} </span>
+                        <button class="btn btn-primary" v-if="loginUser" @click="logout">登出</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pt-5">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">代辦事項</span>
+                        <input type="text" class="form-control" placeholder="輸入代辦事項" v-model="newTodo"
+                            @keyup.enter="addTodo">
+                        <button class="btn btn-outline-success" @click="addTodo">新增</button>
+                    </div>
+                    <div class="card shadow-lg">
+                        <div class="card-header">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" @click="visibility = 'all'"
+                                        :class="{ 'active' : visibility == 'all'}">全部</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" @click="visibility = 'active'"
+                                        :class="{ 'active' : visibility == 'active'}">進行中</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" @click="visibility = 'completed'"
+                                        :class="{ 'active' : visibility == 'completed'}">已完成</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" v-for="item in filterTodo">
+                                    <div class="d-flex" v-if="item.id != cacheItem.id">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" v-model="item.completed">
+                                            <label for="" class="form-check-label"
+                                                :class="{ 'completed' : item.completed}" @dblclick="editTodo(item)">{{
+                                                item.title }}</label>
+                                        </div>
+                                        <button type="button" class="btn-close ms-auto" aria-label="Close"
+                                            @click="removeTodo(item)"></button>
+                                    </div>
+                                    <input type="text" class="form-control" v-if="item.id == cacheItem.id"
+                                        v-model="cacheTitle" @keyup.enter="doneTodo(item)" @keyup.esc="canacelTodo">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <span>還有{{ countActive }}筆任務未完成</span>
+                            <a href="#" @click="destory">清除所有代辦事項</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    newTodo: '',
+                    visibility: 'all', //all active completed
+                    cacheTitle: '',
+                    cacheItem: [],
+                    loginUser: [],
+                    todos: [
+                        {
+                            id: '001',
+                            title: '寫作業',
+                            completed: false
+                        },
+                        {
+                            id: '002',
+                            title: '吃晚餐',
+                            completed: false
+                        },
+                        {
+                            id: '003',
+                            title: '買消夜',
+                            completed: false
+                        },
+                    ]
+                }
+            },
+            methods: {
+                addTodo() {
+                    console.log(Date.now());
+                    console.log(Math.floor(Date.now()));
+
+                    const timestamp = Math.floor(Date.now());
+                    const value = this.newTodo.trim();
+
+                    if (!value) {
+                        return;
+                    }
+                    this.todos.push({
+                        id: timestamp,
+                        title: value,
+                        completed: false
+                    });
+                    this.newTodo = '';
+                },
+                removeTodo(todo) {
+                    const vm = this;
+                    newIndex = vm.todos.findIndex((item, index) => {
+                        return todo.id == item.id
+                    });
+                    vm.todos.splice(newIndex, 1);
+                },
+                editTodo(item) {
+                    const vm = this;
+                    vm.cacheItem = item;
+                    vm.cacheTitle = item.title;
+                },
+                doneTodo(item) {
+                    const vm = this;
+                    item.title = vm.cacheTitle;
+                    vm.cacheItem = [];
+                    vm.cacheTitle = '';
+                },
+                canacelTodo() {
+                    const vm = this;
+                    vm.cacheItem = [];
+                    vm.cacheTitle = '';
+                },
+                destory() {
+                    if (confirm("確認清除?")) {
+                        this.todos = [];
+                    }
+                },
+                logout() {
+                    const vm = this;
+                    vm.setCookie("uid01", "", 7);
+                    location.href = "0730-spa.html";
+                },
+                setCookie(cname, cvalue, exdays) {
+                    const d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    let expires = "expires=" + d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                },
+                getCookie(cname) {
+                    let name = cname + "=";
+                    let decodedCookie = decodeURIComponent(document.cookie);
+                    let ca = decodedCookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+            },
+            computed: {
+                filterTodo() {
+                    const vm = this;
+                    if (vm.visibility == 'all') {
+                        return vm.todos;
+                    } else if (vm.visibility == 'active') {
+                        //挑選 item.completed 為false的事項 並回傳   
+                        const activeTodo = [];
+                        vm.todos.forEach((item, key) => {
+                            if (!item.completed) {
+                                activeTodo.push(item);
+                            }
+                        });
+                        return activeTodo;
+                    } else if (vm.visibility == 'completed') {
+                        //挑選 item.completed 為true的事項 並回傳   
+                        const completedTodo = [];
+                        vm.todos.forEach((item, key) => {
+                            if (item.completed) {
+                                completedTodo.push(item);
+                            }
+                        });
+                        return completedTodo;
+                    }
+                },
+                countActive() {
+                    let count = 0;
+                    const vm = this;
+                    vm.todos.forEach((item, key) => {
+                        if (!item.completed) {
+                            count++;
+                        }
+                    });
+                    return count;
+                }
+            },
+            created() {
+                //確認uid是否存在且合法
+                const vm = this;
+                if (vm.getCookie("uid01") != "") {
+                    //將uid01傳遞至後端api確認是否合法
+                    var dataJSON = {};
+                    dataJSON["uid01"] = vm.getCookie("uid01");
+                    console.log(JSON.stringify(dataJSON));
+
+                    $.ajax({
+                        type: "POST",
+                        url: "member-login-check-uid-api.php",
+                        data: JSON.stringify(dataJSON),
+                        async: false,
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            vm.loginUser = data.data.Username;
+                        },
+                        error: function () {
+                            alert("error-member-login-check-uid-api.php");
+                        }
+                    });
+                } else {
+                    alert("尚未登入, 請登入會員來使用附加功能!");
+                    location.href = "0730-spa.html";
+                }
+            }
+        }
+
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

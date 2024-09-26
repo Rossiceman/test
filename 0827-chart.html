@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chartjs</title>
+    <link rel="stylesheet" href="css/mycolor.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/choicefont">
+    <link rel="stylesheet" href="css/all.min.css">
+  </head>
+  <body>
+    <section>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="0730-spa.html"
+            ><i class="fa-solid fa-chart-line"></i>Winner</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="0730-spa.html"
+                  >首頁</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.reuters.com/">市場情報</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  付費解鎖
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="0820-member-control-panel.html">會員權限管理</a></li>
+                  <li><a class="dropdown-item" href="0827-chart.html">會員數據分析</a></li>
+                  <li><a class="dropdown-item" href="0716-table.html">會員資料</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div>
+              <span class="h4 fw-300 d-none" id="s02_login_username"
+                >會員<span class="fw-300" id="s02_login_username"
+                  >xxx</span
+                ></span
+              >
+              
+              <button class="btn btn-danger d-none" id="s02_logout_btn">
+                登出
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+    
+    
+      <div class="row">
+          <div class="col-12">
+              <canvas id="myChart02"></canvas>
+          </div>
+      </div>
+  </div>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var mychart;
+        $(function(){
+          //取得資料
+          $.ajax({
+            type:"GET",
+            url:"member-chart-level-api.php",
+            dataType:"json",
+            success:showdata_chart,
+            error: function(){
+              alert("error-member-chart-level-api.php")
+            }
+          });
+          
+         
+       
+
+//myChart02
+const ctx02 = document.getElementById('myChart02'); //$("#myChart")
+
+mychart = new Chart(ctx02, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange000'],
+        datasets: [{
+            label: '會員人數',
+            data: [120, 19, 3, 5, 2, 30],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+      //查詢資料庫 member會員等級跟人數
+      //SELECT COUNT(Level) AS num,Level FROM member GROUP BY Level;
+
+      //清空圖表
+      // mychart.data.labels = [];
+      // mychart.data.datasets[0].data=[];
+
+      // //更改圖表要用config
+      // mychart.config.type='bar';
+
+      // //更改圖表名稱
+      // mychart.data.datasets[0].label = "人口居住地"
+      
+      // mychart.data.labels.push("台中");
+      // mychart.data.datasets[0].data.push("200");
+      // mychart.data.labels.push("台北");
+      // mychart.data.datasets[0].data.push("300");
+      // mychart.data.labels.push("高雄");
+      // mychart.data.datasets[0].data.push("150");
+      // mychart.update();
+
+
+      // mychart.data.labels.push("fuck");
+      // // datasets裡的data是陣列，所以要用[]來取第幾筆的資料
+      // mychart.data.datasets[0].data.push(100);
+      // mychart.update();
+
+
+        });
+      
+
+      function addData(chart, label, newData) {
+        chart.data.labels.push(label);
+        chart.data.datasets.forEach((dataset) => {
+          dataset.data.push(newData);
+        });
+        chart.update();
+      }
+
+      function showdata_chart(data){
+        console.log(data);
+
+        mychart.data.labels=[];
+        mychart.data.datasets[0].data=[];
+        data.data.forEach(function(item){
+          console.log(item.level);
+          console.log(item.level_num);
+          if(item.level == 900){
+                    mylevel = "管理員"
+                }else if(item.level == 100){
+                    mylevel = "普通會員"
+                }else if(item.level == 200){
+                    mylevel = "高級VIP"
+                }else if(item.level == 300){
+                    mylevel = "尊爵VIP"
+                }
+                mychart.data.labels.push(mylevel);
+                mychart.data.datasets[0].data.push(item.level_num);
+                mychart.update();
+        });
+      }
+    </script>
+  </body>
+</html>

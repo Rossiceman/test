@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html and css練習</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/mycolor.css" />
+    <!--margin設定邊界間距-->
+    <!--ul li的地方如果邊界沒有推開，在每一列放margin-top測試-->
+    <!--跟文字有關要用font-size-->
+    <!--RWD響應式網站:@media screen and (max-width: 1024px)， 意思是小於1024px才會使用RWD，讓網頁不受縮放影響到觀看大小尺吋-->
+    <style>
+      .wrapper {
+        width: 1024px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .logo {
+        height: 260px;
+        background-image: url(image/newyork.jpg);
+        background-position: center center;
+        background-size: cover;
+      }
+      nav {
+        text-align: center;
+      }
+      nav ul {
+        display: inline-block;
+        margin-top: 20px;
+      }
+      nav ul li {
+        list-style-type: none;
+        float: left;
+      }
+      nav ul li a {
+        display: block;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-decoration: none;
+      }
+      .content_in {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 30px;
+        padding-bottom: 50px;
+        text-align: center;
+      }
+      .content_in p {
+        font-size: 18px;
+      }
+      .footer {
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 6px;
+        font-size: 24px;
+        margin-top: 20px;
+      }
+      @media screen and (max-width: 1024px) {
+        .wrapper {
+          width: 100%;
+        }
+        .logo{
+        background-image: url(image/street.jpg);
+      }
+      }
+     
+    </style>
+  </head>
+  <body class="bg-13">
+    <div class="wrapper">
+      <div class="banner"></div>
+      <!--橫幅圖片-->
+      <!-- <div class="logo">
+        <img src="https://fakeimg.pl/700x180/200" width="100%" />
+      </div> -->
+      <!--橫幅圖片-->
+      <div class="logo bg-01"></div>
+      <!--選單-->
+      <!-- ul>li*5>a 選單用<nav>a是超連結-->
+      <nav class="bg-01">
+        <!--按鈕bg-btn06到顏色資料庫製作-->
+        <ul>
+          <li><a href="202406-1.html" class="bg-btn06">首頁</a></li>
+          <li><a href="202406-1-1.html" class="bg-btn06">最新消息</a></li>
+          <li><a href="202406-1-2.html" class="bg-btn06">合作店家</a></li>
+          <li><a href="202406-1-3.html" class="bg-btn06">關於我們</a></li>
+          <li><a href="202406-1-4.html" class="bg-btn06">聯絡我們</a></li>
+        </ul>
+      </nav>
+      <div class="content"></div>
+      <div class="content_in bg-12">
+        <h1 class="text-color11">歡迎光臨</h1>
+        <p class="text-color06">
+          這位我去來源回憶消息競爭力實用權益商品比例醫藥法人，簡直接口根本市場足球人們正是大會你會有什麼臺灣至少面臨性能，一部測試仔細消除日常將軍參考閲讀者，並在一笑犯罪房屋種種關係認為引導你要對手反覆今天，歐美很好不論為你把握傳真進行靜靜可是幹什麼，求職化學，知。這位我去來源回憶消息競爭力實用權益商品比例醫藥法人，簡直接口根本市場足球人們正是大會你會有什麼臺灣至少面臨性能，一部測試仔細消除日常將軍參考閲讀者，並在一笑犯罪房屋種種關係認為引導你要對手反覆今天，歐美很好不論為你把握傳真進行靜靜可是幹什麼，求職化學，知。
+        </p>
+        <p class="text-color06">
+          負責人生命一件高中中有路線專業風雲新增，全體付出提供紅色物品建築情緒氣息支付感謝變得，運作精采共同常用不大貫徹或是知道社會，那樣榮譽地面對付傳奇烏日所說提出了看來需要目的別人審核永遠，買賣神經郵遞區號說著瞬間出現在趕緊不足降低眼光這一不怕，怎樣完全，下午。負責人生命一件高中中有路線專業風雲新增，全體付出提供紅色物品建築情緒氣息支付感謝變得，運作精采共同常用不大貫徹或是知道社會，那樣榮譽地面對付傳奇烏日所說提出了看來需要目的別人審核永遠，買賣神經郵遞區號說著瞬間出現在趕緊不足降低眼光這一不怕，怎樣完全，下午。
+        </p>
+        <p class="text-color06">
+          你說軟體，最為藝術另外做好似乎辦公室，清楚接近加強管理系統維修高速兩次設施房地產投票採訪，瀏覽生日速度諾基亞臺灣民眾穩定死亡都會世界上不論英語清楚，把我機關液晶得到互動獨立標誌一批，給予擁有，互相搭配老公植物職工一口氣空調首先，組合訂單百姓暴力網頁課程通。你說軟體，最為藝術另外做好似乎辦公室，清楚接近加強管理系統維修高速兩次設施房地產投票採訪，瀏覽生日速度諾基亞臺灣民眾穩定死亡都會世界上不論英語清楚，把我機關液晶得到互動獨立標誌一批，給予擁有，互相搭配老公植物職工一口氣空調首先，組合訂單百姓暴力網頁課程通。
+        </p>
+        <!--按鈕bg-btna06到顏色資料庫製作-->
+        <a href="#" class="bg-btna06">了解更多</a>
+      </div>
+      <div class="footer bg-03">
+        <p class="text-color06">雲端技術班202406製作</p>
+      </div>
+    </div>
+  </body>
+</html>

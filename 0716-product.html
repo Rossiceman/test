@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品建檔</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">控制台</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="0730-spa.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="0716-product.html">會員建檔</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="0716-table.html">會員管理</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="row justify-content-center my-5">
+            <div class="col-10">
+                <div class="card shadow-lg">
+                    <div class="card-header text-bg-success">
+                        <div class="h3 text-center">會員建檔</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 form-floating">
+                            <input type="text" name="p_name" id="p_name" class="form-control  is-invalid" list="p_name_list" placeholder="">
+                            <label for="p_name" class="form-label">會員名稱(字數2~6)</label>
+                            <datalist id="p_name_list">
+                                <option value="紅茶">紅茶</option>
+                                <option value="綠茶">綠茶</option>
+                                <option value="青茶">青茶</option>
+                            </datalist>
+                            <div class="valid-feedback">符合規定</div>
+                            <div class="invalid-feedback">不符合規定</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="p_price" class="form-label">會員投資金額(1~1000)</label>
+                            <input type="number" name="p_price" id="p_price" class="form-control is-valid" min="0" max="1000" value="100">
+                            <div class="valid-feedback">符合規定</div>
+                            <div class="invalid-feedback">不符合規定</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="p_num" class="form-label">投資項目數量(0~100)</label>
+                            <input type="number" name="p_num" id="p_num" class="form-control is-valid" min="0" max="100" value="10">
+                            <div class="valid-feedback">符合規定</div>
+                            <div class="invalid-feedback">不符合規定</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="p_remark" class="form-label">會員備註(1~5)</label>
+                            <textarea name="p_remark" id="p_remark" class="form-control is-invalid"></textarea>
+                            <div class="valid-feedback">符合規定</div>
+                            <div class="invalid-feedback">不符合規定</div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button class="btn btn-danger">取消</button>
+                            <button class="btn btn-warning" id="ok_btn">確定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert2@11.js"></script>
+    <script>
+        var flag_p_name = false;
+        var flag_p_price = true;
+        var flag_p_num = true;
+        var flag_p_remark = false;
+        $(function(){
+            //監聽p_name
+            $("#p_name").bind("input propertychange", function(){
+                if($(this).val().length > 1 && $(this).val().length < 7){
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_p_name = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_p_name = false;
+                }
+            });
+
+            //監聽p_price
+            $("#p_price").bind("input propertychange", function(){
+                if($(this).val() > 0 && $(this).val() < 1001){
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_p_price = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_p_price = false;
+                }
+            });
+
+            //監聽p_num
+            $("#p_num").bind("input propertychange", function(){
+                if($(this).val() > 0 && $(this).val() < 101){
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_p_num= true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_p_num= false;
+                }
+            });
+
+
+            //監聽p_remark
+            $("#p_remark").bind("input propertychange", function(){
+                if($(this).val().length > 1 && $(this).val().length < 6){
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_p_remark = true;
+                }else{
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_p_remark = false;
+                }
+            });
+
+            
+             $("#ok_btn").click(function(){
+                if(flag_p_name && flag_p_num && flag_p_price && flag_p_remark){
+                    console.log($("#p_name").val());
+                    console.log($("#p_price").val());
+                    console.log($("#p_num").val());
+                    console.log($("#p_remark").val());
+                    //{"name":"雞腿飯", "price":"100", "num":"2", "remark":"好吃"}
+
+                    var dataJSON = {};
+                    dataJSON["name"]   = $("#p_name").val();
+                    dataJSON["price"]  = $("#p_price").val();
+                    dataJSON["num"]    = $("#p_num").val();
+                    dataJSON["remark"] = $("#p_remark").val();
+                    
+                    console.log(JSON.stringify(dataJSON));
+                    //傳遞至後端api
+                    $.ajax({
+                        type:"POST",
+                        url:"0716-Create_v1.php",
+                        data:JSON.stringify(dataJSON),
+                        contentType:"application/json;charset=utf-8",
+                        dataType:"json",
+                        success: showdata_create,
+                        error:function(){
+                            alert("error-0716-Create_v1.php");
+                        }
+                    });
+                }else{
+                    alert("欄位有錯, 請修正!");
+                }
+            });
+        });
+
+        function showdata_create(data){
+            console.log(data);
+            if(data.state){
+                // alert(data.message);
+        Swal.fire({
+        title:data.message,
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: "確認",
+        denyButtonText: `Don't save`
+        }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire("Saved!", "", "success").then(()=>{
+                location.href='0716-product.html';
+            });
+        } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+        }
+});
+            }else{
+                alert(data.message);
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>觀光民宿旅館資料庫-API</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+    <style>
+        .box{
+            height: auto;
+            margin: 15px;
+            border:5px solid var(--mycolor11);
+            box-shadow: 5px 5px 5px 5px var(--mycolor05);
+            border-radius: 20px;
+            margin: 15px;
+        }
+        .box_text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="mydata">
+            <div class="col-sm-6">
+                <div class="box bg-10">
+                    <div class="bg-cover" style="background-image: url(https://ezgo.ardswc.gov.tw/Uploads/opendata/TainmaMain01/APPLY_D/20151007173728.jpg);height: 180px;"></div>
+                    <div class="box_text">
+                        <div class="h4">餐廳名稱:ABC</div>
+                        <div class="h4">電話:03-12345678</div>
+                        <div class="h4">地址:工業區一路100號</div>
+                        <div class="h4">簡介:阿摩斯原創推坑王，危機同志進攻按鈕場所，道德註冊投資者。</div>
+                        <a href="#" class="btn btn-warning mt-auto">查看更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>    
+<script>
+   
+
+    var hotelData;
+
+    $(function(){
+        $.ajax({
+            type:"GET",
+            url:"js/hotel_C_f.json",
+            dataType:"json",
+            success:showdata,
+            error:function(){
+                console.log("js/hotel_C_f.json");
+            }
+        });
+    });
+
+    function showdata(data){
+    /*    console.log(data);
+        console.log(data.XML_Head);
+        console.log(data.XML_Head.Infos);
+        console.log(data.XML_Head.Infos.Info);
+     原始資料，一層一層抓取，可以融縮成下列*/
+
+        hotelData = data.XML_Head.Infos.Info;
+        console.log(hotelData);
+        
+        /*foreach 把每筆資料都掃描一次 ，針對第0筆func(事件)，第一筆item
+          console.log(item.Name)只印出第一姓名;*/
+        $("#mydata").empty();
+          hotelData.forEach(function(item){
+                if(item.Region == '臺中市' && item.Town == '西屯區'){
+                console.log(item);
+                /*var Desc =item.Description.substring(0,50)  限定50個字里內*/
+                var Pic;
+                    if(item.Picture1 !=""){
+                        Pic =item.Picture1;
+                    }else{
+                        Pic ="image/street9.jpg"
+                    }
+                var strHTML ='<div class="col-sm-6 col-lg-4 mt-3"><div class="box bg-10 h-100 w-100 d-flex flex-column"><div class="bg-cover" style="background-image: url('+ Pic +');height: 180px;"></div><div class="box_text"><div class="h1">民宿名稱:'+ item.Name +'</div><div class="h2">電話:'+ item.Tel +'</div><div class="h4">地址:'+ item.Add +'</div><div class="h6">信箱:'+ item.IndustryEmail +'</div></div><a href="#" class="btn btn-warning mt-auto">查看更多</button></div></div>';
+                
+                $("#mydata").append(strHTML);
+
+            }
+           
+                       
+        });
+    }
+    
+
+
+
+
+</script>
+</body>
+</html>

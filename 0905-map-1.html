@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map 練習</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/mycolor.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="card-body">
+              <div id="map" class="bg-10" style="height: 500px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      $(function () {
+        var map = L.map("map").setView([34.6440394,135.5035764], 13);
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        L.marker([34.6440394,135.5035764])
+          .addTo(map)
+          .bindPopup('飛田新地<img src="image/gold-1.jpg" class="image-fluid" alt="" style="height:180px">')
+          .openPopup();
+
+          L.marker([34.6534812,135.4952937])
+          .addTo(map)
+          .bindPopup("Awaawasentai")
+          .openPopup();
+
+          L.marker([34.6665425,135.4915033])
+          .addTo(map)
+          .bindPopup("WAN SPA")
+          .openPopup();
+
+          
+          L.marker([34.6673384,135.4854172])
+          .addTo(map)
+          .bindPopup("SPA 咲くら庵 SAKURA-AN")
+          .openPopup();
+      });
+    </script>
+  </body>
+</html>

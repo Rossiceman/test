@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冰島．IceLand</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- background-attachment: fixed;這個可以讓圖片直接填滿整個畫面-->
+    <style>
+        body{
+            /* background-image: url(image/iceland3.jpg); */
+            background-image: linear-gradient(180deg, rgba(2, 38, 245, 0.1),rgba(253, 252, 252, 0.2)),url(image/iceland3.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .text01{
+            background-color: rgba(0, 0,0,0.2);
+        }
+        @media screen and (max-width:768px){
+          body{
+            background-image: linear-gradient(180deg, rgba(2, 38, 245, 0.1),rgba(253, 252, 252, 0.2)),url(image/iceland.jpg);
+          }
+          /*手機板的變化跟介面修飾*/
+        }
+    </style>
+</head>
+<body class="bg-cover">
+    <nav class="navbar navbar-expand-lg bg-14 navber-bg-14">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/0701-iceland-index.html"><i class="fa-solid fa-hat-cowboy"></i>IceLand</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/0701-iceland-index.html"><i class="fa-brands fa-fort-awesome text-secondary text-danger-emphasis"></i>首頁Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/0701-iceland-about.html"><i class="fa-brands fa-fort-awesome-alt text-danger-emphasis"></i>關於我們About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/0701-iceland-product.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-radiation text-info-emphasis"></i>景點介紹View
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/0701-iceland-view.html">山Mountain</a></li>
+                  <li><a class="dropdown-item" href="/0701-iceland-view-1.html">海Sea</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </ul>
+            <!-- <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row text-center">
+            <div class="col-12 col-md-6 offset-md-3 d-none d-md-block">
+                <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+                  <i class="fa-brands fa-soundcloud"></i>
+                  <span class="fw-400">IceLand...</span>
+                  
+                </div>
+            </div>
+            <div class="col-12 col-md-6 offset-md-3 d-md-none d-sm-block align-items-center">
+                <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+                    <span class="text-danger fw-400">Let's Go.</span>
+                </div>
+                <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+                  <span class="text-warning fw-400">Have a safe journey.</span>
+              </div>
+              <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+                <span class="fw-600"><i class="fa-solid fa-plane-departure"></i></span>
+            </div>
+            <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+              <span class="fw-600"><i class="fa-solid fa-wind"></i></span>
+          </div>
+          <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+            <span class="fw-600"><i class="fa-solid fa-plane-arrival"></i></span>
+        </div>
+        <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+          <a href="/0701-iceland-view.html" class="link-success">景點介紹View Us</a>
+          </div>
+          <div class="text01 display-4 fw-900 text-white p-4 mt-4 rounded-4 shadow-lg">
+            <a href="/0701-iceland-about.html">關於我們About Us</a>
+            </div>
+            </div>           
+        </div>
+      </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

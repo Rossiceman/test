@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>欄與列(RWD)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+    <style>
+        .box{
+            height: 220px;
+            margin: 15px;
+        }
+        .box01{
+            height: 220px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <div class="container">
+        <p class="display-3">1.斷點(sm,md,lg,xl.xxl)</p>
+        <div class="row">
+            <!--col-斷點sm代表要576~768才會變col-6-->
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box bg-01"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box bg-01"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box bg-01"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box bg-01"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box bg-01"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box bg-01"></div>
+            </div>
+        </div>
+        <p class="display-3">2.隱藏(d-none,加上上面尺寸),顯示(d-block)</p>
+        <div class="row">
+            <div class="col-md-3 d-lg-none d-xl-block">
+                <div class="box bg-02">
+                    <div class="h1">123</div>
+                </div>
+            </div>
+            <div class="col-md-3 d-sm-none d-md-block">
+                <div class="box bg-02">
+                    <div class="h1">456</div>
+                </div>
+            </div>
+            <div class="col-md-3 d-md-none d-lg-block">
+                <div class="box bg-02">
+                    <div class="h1">789</div>
+                </div>
+            </div>
+            <div class="col-md-3 d-xl-none d-xll-block">
+                <div class="box bg-02">
+                    <div class="h1">111213</div>
+                </div>
+            </div>
+        </div>
+        <p class="display-3">3.推移(offset)</p>
+        <div class="row">
+            <div class="col-2 offset-md-3 offset-lg-3 offset-xl-6 offset-xxl-10">
+            <div class="box bg-03"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+            <div class="box bg-03"></div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+            <div class="box bg-05">律師年齡來源主流多多錯誤賺錢經常原本，剛剛設立這種隨時共享版開了動態，一面會計商業大連古代再度電視劇你有無人但我資訊，輕易分別積分設為簽名資格大量你就和平專業程度投資，閲讀注重堅持，觀點我這老闆我很把它國人，藝術分別品質這裡微微下午，謝謝自主，上次資訊過。</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-lg-4">
+            <div class="box bg-03"></div>
+            </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="box bg-06">重量成熟智能你有，權力美國印刷陽光報紙有利於採購市場價可以用，在此規範，漂亮好激動討論區，網頁動漫手裡一邊壓力出發天下練習往往展示減少突然調節，評論一下子正是電池原來在他我國面臨事故，評估關西引起，隨便計算日記給我們競爭接收所以雙方，釣魚農村先進右鍵，主。</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-lg-8">
+            <div class="box bg-03"></div>
+            </div>
+        </div>
+        <p class="display-3">4.Gutter間距(g-0~5,gx-0~5,gy-0~5)</p>
+        <div class="row g-5">
+            <div class="col-md-4">
+                <div class="box01 bg-07"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="box01 bg-07"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="box01 bg-07"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="box01 bg-07"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="box01 bg-07"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="box01 bg-07"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                
+                <div class="box bg-08"></div>
+            <div class="col-10">
+                <div class="col-3">
+                    <div class="box bg-08"></div>
+                </div>
+                <div class="col-3">
+                    <div class="box bg-08"></div>
+                </div>
+                <div class="col-3">
+                    <div class="box bg-08"></div>
+                </div>
+                <div class="col-3">
+                    <div class="box bg-08"></div>
+                </div>
+            </div>
+            
+        </div>
+        <p class="display-3">5.row-cols{中斷點}-{欄數}</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-5 row-cols-xll-6">
+            <div class="col">
+                <div class="box bg-09"></div>
+            </div>
+            <div class="col">
+                <div class="box bg-09"></div>
+            </div>
+            <div class="col">
+                <div class="box bg-09"></div>
+            </div>
+            <div class="col">
+                <div class="box bg-09"></div>
+            </div>
+            <div class="col">
+                <div class="box bg-09"></div>
+            </div>
+            <div class="col">
+                <div class="box bg-09"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

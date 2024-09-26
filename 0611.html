@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+</head>
+<script src="js/bootstrap.bundle.min.js"></script>
+<style>
+    @media screen and (max-width:800px){
+        .table-rwd thead{
+            display: none;
+        }
+        .table-rwd tbody tr{
+            display: block;
+            margin-top: 15px;
+            border: 5px solid var(--mycolor06);
+        }
+        .table-rwd tbody tr td{
+            display: block;
+            overflow: hidden;
+        }
+        .table-rwd tbody tr td::before{
+            content: attr(data-th)" : ";
+            color: var(--mycolor08);
+            font-weight: bolder;
+            font-size: 22px;
+            display: block;
+            float: left;
+            width: 30%;
+            text-align: right;
+            padding-right: 15px;
+        }
+        .table-rwd tbody tr td span.table-col{
+            display: block;
+            float: left;
+            width: 70%;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered table-sm table-rwd">
+            <thead>
+            <tr>
+                <td>商品編號</td>
+                <td>商品名稱</td>
+                <td>商品圖片</td>
+                <td>商品價格</td>
+                <td>商品數量</td>
+                <td>商品備註</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-th="商品編號"><span class="table-col">01</span></td>
+                <td data-th="商品名稱"><span class="table-col">檸檬哄茶</span></td>
+                <td data-th="商品圖片"><span class="table-col"><img src="image/01.jpg" width="300px" alt=""></span></td>
+                <td data-th="商品價格"><span class="table-col">100</span></td>
+                <td data-th="商品數量"><span class="table-col">10</span></td>
+                <td data-th="商品備註"><span class="table-col">世界不多評分能不能，有關部門邀請法律責任網咖機械，軟體顯示，複製案例點這裡下載聯繫電話諮詢醫療行業有了貨幣，他說學生，花園有關部門老闆查看天天老婆，新增一台一項成果，感覺到設為保存站點，電子國語，此。</span></td>
+            </tr>
+            <tr>
+                <td data-th="商品編號"><span class="table-col">01</span></td>
+                <td data-th="商品名稱"><span class="table-col">檸檬哄茶</span></td>
+                <td data-th="商品圖片"><span class="table-col"><img src="image/02.jpg" width="300px" alt=""></span></td>
+                <td data-th="商品價格"><span class="table-col">100</span></td>
+                <td data-th="商品數量"><span class="table-col">10</span></td>
+                <td data-th="商品備註"><span class="table-col">世界不多評分能不能，有關部門邀請法律責任網咖機械，軟體顯示，複製案例點這裡下載聯繫電話諮詢醫療行業有了貨幣，他說學生，花園有關部門老闆查看天天老婆，新增一台一項成果，感覺到設為保存站點，電子國語，此。</span></td>
+            </tr>
+            <tr>
+                <td data-th="商品編號"><span class="table-col">01</span></td>
+                <td data-th="商品名稱"><span class="table-col">檸檬哄茶</span></td>
+                <td data-th="商品圖片"><span class="table-col"><img src="image/03.jpg" width="300px" alt=""></span></td>
+                <td data-th="商品價格"><span class="table-col">100</span></td>
+                <td data-th="商品數量"><span class="table-col">10</span></td>
+                <td data-th="商品備註"><span class="table-col">世界不多評分能不能，有關部門邀請法律責任網咖機械，軟體顯示，複製案例點這裡下載聯繫電話諮詢醫療行業有了貨幣，他說學生，花園有關部門老闆查看天天老婆，新增一台一項成果，感覺到設為保存站點，電子國語，此。</span></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceLand．介紹-海篇</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-14 navbar-bg-14">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/0701-iceland-index.html"><i class="fas fa-hat-cowboy"></i> IceLand</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/0701-iceland-index.html"><i class="fab fa-fort-awesome text-secondary text-danger-emphasis"></i> 首頁Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/0701-iceland-about.html"><i class="fab fa-fort-awesome-alt text-danger-emphasis"></i> 關於我們About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-circle-radiation text-info-emphasis"></i> 景點View
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/0701-iceland-view.html">山Mountain</a></li>
+                  <li><a class="dropdown-item" href="/0701-iceland-view-1.html">海Sea</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">其他</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="banner bg-info bg-cover d-none d-md-block" style="height: 260px; background-image: linear-gradient(180deg, rgba(99, 100, 98, 0.1), rgba(247, 241, 241, 0.2)), url(image/iceland5.jpg);"></div>
+    <div class="container">
+      <h2 class="text-warning fw-900 mt-3">景點介紹<small class="text-muted fw-500">View</small></h2>
+      <div class="row gy-3" id="mydata"><!-- This div will contain dynamically generated content --></div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(function () {
+        $.ajax({
+          type: "GET",
+          url: "js/bakery_products_zh.json",
+          dataType: "json",
+          success: showdata,
+          error: function () {
+            console.log("!連線錯誤-js/bakery_products_zh.json");
+          },
+        });
+      });
+
+      function showdata(data) {
+        console.log(data);
+        $("#mydata").empty();
+
+        data.forEach(function (item) {
+          var strHTML;
+          var Ingredients = '';
+
+          for (var i = 0; i < item.Ingredients.length; i++) {
+            Ingredients += '<span class="text-bg-success badge fw-500">' + item.Ingredients[i] + '</span>';
+            console.log(item.Ingredients[i]);
+          }
+
+          strHTML = '<div class="col-lg-4"><div class="card"><img src="' + item.ImagePath + '" class="card-img-top" alt=""><div class="card-body"><div class="card-text h3 fw-900 text-muted">' + item.ProductName + '</div><div class="card-text h4 fw-900 text-muted">' + item.Price + '</div><div class="card-text"><span class="h4 fw-900">特色' + Ingredients + '</span><span class="text-bg-danger badge fw-500"></span><span class="fw-400">' + item.Description + '。</span></div><a href="/0701-iceland-details.html" target="_blank" class="btn btn-warning w-100 my-3">查看詳情</a></div></div></div>';
+
+          $("#mydata").append(strHTML);
+        });
+      }
+    </script>
+</body>
+</html>

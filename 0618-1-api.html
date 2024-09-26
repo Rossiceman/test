@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api串接資料</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycolor.css">
+    <style>
+        .box{
+            height: auto;
+            margin: 15px;
+            border:5px solid var(--mycolor11);
+            box-shadow: 5px 5px 5px 5px var(--mycolor05);
+            border-radius: 20px;
+        }
+        .box_text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<!--
+.->class->css
+#->id->js-->
+<body>
+   <div class="container">
+        <div class="row" id="mydata">
+            <div class="col-sm-6">
+                <div class="box bg-10">
+                    <div class="bg-cover" style="background-image: url(https://ezgo.ardswc.gov.tw/Uploads/opendata/TainmaMain01/APPLY_D/20151007173728.jpg);height: 180px;"></div>
+                    <div class="box_text">
+                        <div class="h4">餐廳名稱:ABC</div>
+                        <div class="h4">電話:03-12345678</div>
+                        <div class="h4">地址:工業區一路100號</div>
+                        <div class="h4">簡介:阿摩斯原創推坑王，危機同志進攻按鈕場所，道德註冊投資者。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        /*$(function(){
+            console.log("testtest");
+    
+            var weight,hight;
+            weight =50.00;
+            hight =180.00;
+            bmi= 80/((180/100)*(180/100));
+            console.log(weight,hight);
+            console.log("體重:"+ weight +"公斤");
+            console.log("身高:"+ hight +"公分","體重:"+ weight+"公斤");
+            console.log("bmi:"+bmi);
+            for(var i=0;i<9;i++){
+                if(i>5){
+                console.log(i);
+                }
+            }          
+        });*/
+
+        
+
+        $(function(){
+            $.ajax({
+                type:"GET",
+                url:"https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193",
+                dataType:"json",
+                success:showdata,
+                error:function(){
+                    console.log("404-https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193");
+                }
+            });
+        });
+        $("#mydata").empty();
+        function showdata(data){
+            /*console.log(data);
+            console.log(data[0]["Name"]);
+            console.log(data[0].City);
+            console.log(data[0].Tel);
+            console.log(data[0]["Town"])
+            for(var i=0;i<139;i++){
+                console.log(data[i]["Name"]);
+                console.log(data[i].Name);
+            }*/
+           //$("#mydata").html("123");
+           //$("#mydata").append("123");
+           //$("#mydata").empty();
+           for(var i=0;i<139;i++){
+                //$("#mydata").append('<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="box bg-10"><div class="display-4">'+ i + ":" + data[i].Name +'<br>'+ data[i].City +'<br>' + data[i].Tel +'<br>'+ data[i].Town +'</div></div></div>');
+
+
+                var Hwod =data[i].HostWords.substring(0,30);
+                var strHTML ='<div class="col-sm-6 col-md-4 mt-3"><div class="box bg-10 h-100"><div class="bg-cover" style="background-image: url('+ data[i].PicURL +');height: 180px;"></div><div class="box_text"><div class="h1">餐廳名稱:'+ data[i].Name +'</div><div class="h2">電話:'+ data[i].Tel +'</div><div class="h4">地址:'+ data[i].Address +'</div><div class="h6">簡介:'+ Hwod +'。</div></div></div></div>';
+                $("#mydata").append(strHTML);
+           }
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* 單純繁體中文
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+"Noto Sans TC", sans-serif;
+可用尺寸:100~900
+
+POP 廣告字的俏皮風格：Yusei Magic
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+"Yusei Magic", sans-serif;
+可用尺寸:400
+
+硬筆風格，清晰俐落的 Klee One
+@import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap');
+"Klee One", cursive;
+可用尺寸:400,600
+
+柔軟可愛，帶點優雅的 Zen Maru Gothic
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+"Zen Maru Gothic", serif;
+可用尺寸:300,400,500,700,900
+
+傳統美感、清晰易讀的 Zen Old Mincho
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap');
+"Zen Old Mincho", serif;
+可用尺寸:400,500,600,700,900
+
+科技感與人文體驗的結合：IBM Plex Sans JP
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap');
+"IBM Plex Sans JP", sans-serif;
+可用尺寸:100,200,300,400,500,600,700
+
+存在感強烈的 Dela Gothic One
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+"Dela Gothic One", sans-serif;
+可用尺寸:400 
+
+復古的 16 Bit 電子世界：DotGothic 16
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+"DotGothic16", sans-serif;
+可用尺寸:400  */
